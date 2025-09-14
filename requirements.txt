@@ -1,0 +1,6 @@
+flask
+langchain
+chromadb
+sentence-transformers
+pypdf
+werkzeug

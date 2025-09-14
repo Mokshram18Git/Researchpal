@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchPal - AI Research Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>ResearchPal</h1>
+            </div>
+            <p class="subtitle">AI-Powered Research Document Analysis</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="section-header">
+                    <i class="fas fa-file-upload"></i>
+                    <h2>Upload Research PDF</h2>
+                </div>
+                <div class="upload-box" id="uploadBox">
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop your PDF here or</p>
+                        <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                            Choose File
+                        </button>
+                    </div>
+                </div>
+                <div id="uploadStatus"></div>
+            </div>
+
+            <!-- Chat Interface -->
+            <div class="chat-section">
+                <div class="section-header">
+                    <i class="fas fa-comments"></i>
+                    <h2>Research Assistant</h2>
+                    <span class="status-badge" id="statusBadge">Loading...</span>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai-message">
+                            <div class="message-content">
+                                <strong>ResearchPal:</strong> Welcome! Upload a PDF to start analyzing your research documents.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <textarea id="questionInput" placeholder="Ask anything about your research..." rows="3"></textarea>
+                        <button id="sendButton" class="btn-primary" disabled>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <button id="keypointsButton" class="btn-secondary" disabled>
+                        <i class="fas fa-key"></i> Get Key Points
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
